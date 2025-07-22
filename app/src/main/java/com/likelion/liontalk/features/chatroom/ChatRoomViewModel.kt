@@ -1,6 +1,5 @@
 package com.likelion.liontalk.features.chatroom
 
-import android.adservices.topics.Topic
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -10,26 +9,61 @@ import com.likelion.liontalk.data.local.AppDatabase
 import com.likelion.liontalk.data.local.entity.ChatMessageEntity
 import com.likelion.liontalk.data.remote.dto.ChatMessageDto
 import com.likelion.liontalk.data.remote.mqtt.MqttClient
+import com.likelion.liontalk.data.repository.ChatMessageRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ChatRoomViewModel(application: Application, private val roomId: Int) : ViewModel(){
     private val chatMessageDao = AppDatabase.create(application)
         .chatMessageDao()
 
-    val messages : LiveData<List<ChatMessageEntity>>
-        = chatMessageDao.getMessagesForRoom(roomId)
+    private val chatMessageRepository = ChatMessageRepository(application)
+
+//    val messages : LiveData<List<ChatMessageEntity>>
+//        = chatMessageDao.getMessagesForRoom(roomId)
+
+    val messages : LiveData<List<ChatMessageEntity>> = chatMessageRepository.getMessageForRoom(roomId)
+
+    init {
+        viewModelScope.launch {
+            chatMessageRepository.clearLocalDB()
+
+            withContext(Dispatchers.IO) {
+                subscribeToMqttTopics()
+            }
+
+            withContext(Dispatchers.IO) {
+                MqttClient.connect()
+            }
+        }
+    }
+
 
     // 메세지 전송
     fun sendMessage(sender: String, content: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val messageEntity = ChatMessageEntity(
+            val dto = ChatMessageDto(
                 roomId = roomId,
                 sender = sender,
                 content = content,
                 createdAt = System.currentTimeMillis()
             )
-            chatMessageDao.insert(messageEntity)
+            // API -> MQTT -> Room DB insert
+
+            // 1. API 보내기
+            val responseDto = chatMessageRepository.sendMessage(dto)
+
+
+            // 2. MQTT 보내기
+
+
+            if (responseDto != null) {
+                val json = Gson().toJson(responseDto)
+                MqttClient.publish("liontalk/rooms/$roomId/message", json)
+            }
+
+            // chatMessageDao.insert(messageEntity)
         }
     }
 
@@ -60,7 +94,13 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
     }
 
     private fun onReceivedMessage(message: String) {
-        val dto = Gson().fromJson<ChatMessageDto>()
+        val dto = Gson().fromJson(message,ChatMessageDto::class.java)
+
+        viewModelScope.launch {
+//            chatMessageDao.insert(dto.toEntity())
+            chatMessageRepository.receiveMessage(dto)
+        }
+
     }
 
 

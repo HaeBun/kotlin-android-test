@@ -11,7 +11,9 @@ interface ChatMessageDao {
     @Insert
     suspend fun insert(message: ChatMessageEntity)
 
-    @Query("SELECT * FROM chat_message WHERE roomId = :roomId ORDER BY createdAt ASC")
-    fun getMessagesForRoom(roomId: Int): LiveData<List<ChatMessageEntity>>
+    @Query("SELECT * FROM chat_message WHERE roomId = :roomId ORDER BY id DESC")
+    fun getMessagesForRoom(roomId: Int) : LiveData<List<ChatMessageEntity>>
 
+    @Query("DELETE FROM chat_message")
+    suspend fun clear()
 }

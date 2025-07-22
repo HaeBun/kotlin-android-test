@@ -35,13 +35,13 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected RoomOpenDelegate createOpenDelegate() {
-    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(3, "e6e5cf8fd7da20a6ac040598c74b770e", "c6586722045cd9714b0401b839febf75") {
+    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(5, "3cd3e45ca7340c21be0719b149642a06", "79d20c3319b274228329b43bac74e709") {
       @Override
       public void createAllTables(@NonNull final SQLiteConnection connection) {
         SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_room` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `owner` TEXT NOT NULL, `users` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)");
-        SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_message` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `roomId` INTEGER NOT NULL, `sender` TEXT NOT NULL, `content` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)");
+        SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_message` (`id` INTEGER NOT NULL, `roomId` INTEGER NOT NULL, `sender` TEXT NOT NULL, `content` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        SQLite.execSQL(connection, "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e6e5cf8fd7da20a6ac040598c74b770e')");
+        SQLite.execSQL(connection, "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3cd3e45ca7340c21be0719b149642a06')");
       }
 
       @Override

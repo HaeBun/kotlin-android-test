@@ -23,7 +23,8 @@ object MqttClient {
     private val subscribedTopics = mutableListOf<String>()
 
 
-    fun connect(onConnected: (() -> Unit)? = null, onError: ((Throwable) -> Unit)? = null) {
+    fun connect(
+        onConnected: (() -> Unit)? = null, onError: ((Throwable) -> Unit)? = null) {
         if (isConnected) {
             onConnected?.invoke()
             return

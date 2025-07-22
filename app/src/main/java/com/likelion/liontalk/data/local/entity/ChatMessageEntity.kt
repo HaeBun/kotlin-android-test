@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "chat_message")
 data class ChatMessageEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val roomId: Int,
-    val sender: String,
-    val content: String,
-    val createdAt: Long
+    @PrimaryKey(autoGenerate = false) val id: Int = 0,
+    val roomId: Int,        // 방 ID
+    val sender: String,     // 보낸 사람
+    val content: String,    // 보낸 메세지
+    val createdAt: Long     // 시간
 )

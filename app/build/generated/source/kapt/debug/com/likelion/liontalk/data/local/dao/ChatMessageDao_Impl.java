@@ -34,7 +34,7 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `chat_message` (`id`,`roomId`,`sender`,`content`,`createdAt`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `chat_message` (`id`,`roomId`,`sender`,`content`,`createdAt`) VALUES (?,?,?,?,?)";
       }
 
       @Override
@@ -58,13 +58,12 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
   }
 
   @Override
-  public Object insert(final ChatMessageEntity message,
-      final Continuation<? super Unit> $completion) {
+  public Object insert(final ChatMessageEntity message, final Continuation<? super Unit> arg1) {
     if (message == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __insertAdapterOfChatMessageEntity.insert(_connection, message);
       return Unit.INSTANCE;
-    }, $completion);
+    }, arg1);
   }
 
   @Override
@@ -109,6 +108,20 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
         _stmt.close();
       }
     });
+  }
+
+  @Override
+  public Object clear(final Continuation<? super Unit> arg0) {
+    final String _sql = "DELETE FROM chat_message";
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        _stmt.step();
+        return Unit.INSTANCE;
+      } finally {
+        _stmt.close();
+      }
+    }, arg0);
   }
 
   @NonNull
