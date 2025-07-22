@@ -1,0 +1,429 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:2:1-27:12
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/57b8e6375acbdaaa49e56d3a913d6ebd/transformed/navigation-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/bf9ce1b1f90355ee7e4e0e60a5c3e8a6/transformed/navigation-common-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/88e65fb7143c0b222cd8680e7895cd89/transformed/navigation-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.3.2] /Users/haebun/.gradle/caches/8.13/transforms/62446e1b148e5ac7f485de054f4910a2/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [io.coil-kt:coil-compose:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/a1de25ee991825cd2e997d6208bf6837/transformed/coil-compose-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose-base:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/8f6a398283813698d0ce9cd4270fff2e/transformed/coil-compose-base-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/53f9282c028f8b83b71c56d743a6e316/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/00b9919a49c5ccc48b18f47deb0ca138/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/b52c02ae05528716aa1577be874996b3/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb33538d7fbe8df5c7cbb45378eba8bc/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/9d4564e89448cba8dbcc80c04b87b80d/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/7a7fc9cfefe25e47138dfa06dab58d71/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/2cd49f189b7815198da6c91264b7c65f/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/ca3b9556c31d75e6c1ba0596da27144e/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb9203b48b92be3125525231a5849cda/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bda2cf6498794ede8b07bb00cf60ad58/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/1a21dd58c58591872f4f52ad7d12de7c/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0658f57a08b555337c591005186cce30/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/7e241ce78d23adffd46f9ab9173e72b1/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/002303666e029598e44f404419ba4f84/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/haebun/.gradle/caches/8.13/transforms/b01bfa8b26f20b429cec16e013c5b11c/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/37e3035544ab60009386d88b50182eee/transformed/coil-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/74d11ec1c0b13a840d674e8dd85780de/transformed/coil-base-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/haebun/.gradle/caches/8.13/transforms/87fb1e5a5174f512e60a55b24da80177/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/haebun/.gradle/caches/8.13/transforms/2480cc181e8e1c870b7a3cc60cb624f1/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/haebun/.gradle/caches/8.13/transforms/6085e5afad1a0efd1331fe4908c1ecf9/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/aff5ba4f9581037c372ea3bf0f592be1/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/7ef92f88e5d3edac6143795327b944c6/transformed/lifecycle-livedata-core-ktx-2.9.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/3ab185040bc30327ab5db1106158bd35/transformed/lifecycle-livedata-core-2.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/ba5533b112b163742b9092ead4a9262e/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/b034857f452f7eb067704cfec0b022ee/transformed/savedstate-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/dd2ba20426e9761e15adf2f6058387a4/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/05112e5f614155025c2c9760c04986fc/transformed/savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/2be57e2429e5af60fc910ff2a10029cf/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/8d9ededaa5aff6d9e6e9fc59af74e0ff/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/f66a94954ebf5eaa0bdf63cfe9eed523/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb9cccdf80c2011e3c1341cb0db6efdf/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-livedata:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/793c8eee94b7bd24a9d38d2ec542b2e9/transformed/runtime-livedata-1.8.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/9c83c59be94a2adfa17bcb73a3d0e41e/transformed/lifecycle-livedata-2.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/ab93004ee672c5f4d3f82bdb89645ed5/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/55aad7e45c7f4e99e25b3b661acac169/transformed/lifecycle-viewmodel-ktx-2.9.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/4a31556e5e263cece331847989500c8c/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/haebun/.gradle/caches/8.13/transforms/c6acb24d49cc90df6ef3e8a42a2fc9e3/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/haebun/.gradle/caches/8.13/transforms/ba3c83141deeb54058831af182f00687/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/89fe98c70b81c9375a08a29e1ecb1a56/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.activity:activity:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/a42f2baee08dbb2737f76b39c7fe80b2/transformed/activity-1.10.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/407024280f4c8a849c33aaf8741f0f93/transformed/activity-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/15cb1defb29b12d4b1296099a6b1176c/transformed/activity-compose-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/8e22ef25c7c468aa66ae305c676ab353/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/2cd6922e28bde06917c60f35b63a4852/transformed/core-ktx-1.16.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/3ea68e910cfe5bbeec0a0931a9f793a6/transformed/datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/4c31bae533bbf3ecbcfe9355ae4b889b/transformed/datastore-preferences-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/561ce52fa009518b0753abedd26d33d7/transformed/datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/9e8e50ab4c1c1e51e0b283f2291bfa3c/transformed/datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/haebun/.gradle/caches/8.13/transforms/e471024dfbeb34d491c0c9061bd109a0/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/345b5ccbac19dc0883c9aef129192f2b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:2:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/e227c6f5ef4b3340bfb5a2c1cfd1523e/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/e25a24790426dad0fff17b55431e3145/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/haebun/.gradle/caches/8.13/transforms/697451b567aa0d458f35333fde3421ff/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/haebun/.gradle/caches/8.13/transforms/cf4de5be4fd22435d02316fce6ec068a/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.1] /Users/haebun/.gradle/caches/8.13/transforms/69abdb999c42c820447f3e748b159e5a/transformed/sqlite-framework-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-android:2.5.1] /Users/haebun/.gradle/caches/8.13/transforms/774acc39bb4da8a9ad733aa34abaf1e2/transformed/sqlite-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/haebun/.gradle/caches/8.13/transforms/38ee0f1171c2ca3a326df6f63d6aa548/transformed/exifinterface-1.3.7/AndroidManifest.xml:17:1-24:12
+	package
+		INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:5:5-25:19
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:5:5-25:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:23:5-29:19
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:10:5-20:19
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:10:5-20:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/haebun/.gradle/caches/8.13/transforms/697451b567aa0d458f35333fde3421ff/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/haebun/.gradle/caches/8.13/transforms/697451b567aa0d458f35333fde3421ff/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:12:9-35
+	android:label
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:10:9-41
+	android:fullBackupContent
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:8:9-54
+	android:roundIcon
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:11:9-54
+	android:icon
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:9:9-43
+	android:allowBackup
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:13:9-46
+	android:dataExtractionRules
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:7:9-65
+activity#com.likelion.liontalk.MainActivity
+ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:14:9-24:20
+	android:label
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:17:13-45
+	android:exported
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:16:13-36
+	android:theme
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:18:13-50
+	android:name
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:15:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:19:13-23:29
+action#android.intent.action.MAIN
+ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:20:17-69
+	android:name
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:20:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml:22:27-74
+uses-sdk
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/57b8e6375acbdaaa49e56d3a913d6ebd/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/57b8e6375acbdaaa49e56d3a913d6ebd/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/bf9ce1b1f90355ee7e4e0e60a5c3e8a6/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/bf9ce1b1f90355ee7e4e0e60a5c3e8a6/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/88e65fb7143c0b222cd8680e7895cd89/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/88e65fb7143c0b222cd8680e7895cd89/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.2] /Users/haebun/.gradle/caches/8.13/transforms/62446e1b148e5ac7f485de054f4910a2/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.2] /Users/haebun/.gradle/caches/8.13/transforms/62446e1b148e5ac7f485de054f4910a2/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [io.coil-kt:coil-compose:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/a1de25ee991825cd2e997d6208bf6837/transformed/coil-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/a1de25ee991825cd2e997d6208bf6837/transformed/coil-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/8f6a398283813698d0ce9cd4270fff2e/transformed/coil-compose-base-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/8f6a398283813698d0ce9cd4270fff2e/transformed/coil-compose-base-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/53f9282c028f8b83b71c56d743a6e316/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/53f9282c028f8b83b71c56d743a6e316/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/00b9919a49c5ccc48b18f47deb0ca138/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/00b9919a49c5ccc48b18f47deb0ca138/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/b52c02ae05528716aa1577be874996b3/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/b52c02ae05528716aa1577be874996b3/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb33538d7fbe8df5c7cbb45378eba8bc/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb33538d7fbe8df5c7cbb45378eba8bc/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/9d4564e89448cba8dbcc80c04b87b80d/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/9d4564e89448cba8dbcc80c04b87b80d/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/7a7fc9cfefe25e47138dfa06dab58d71/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/7a7fc9cfefe25e47138dfa06dab58d71/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/2cd49f189b7815198da6c91264b7c65f/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/2cd49f189b7815198da6c91264b7c65f/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/ca3b9556c31d75e6c1ba0596da27144e/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/ca3b9556c31d75e6c1ba0596da27144e/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb9203b48b92be3125525231a5849cda/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb9203b48b92be3125525231a5849cda/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bda2cf6498794ede8b07bb00cf60ad58/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bda2cf6498794ede8b07bb00cf60ad58/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/1a21dd58c58591872f4f52ad7d12de7c/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/1a21dd58c58591872f4f52ad7d12de7c/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0658f57a08b555337c591005186cce30/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0658f57a08b555337c591005186cce30/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/7e241ce78d23adffd46f9ab9173e72b1/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/7e241ce78d23adffd46f9ab9173e72b1/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/002303666e029598e44f404419ba4f84/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/002303666e029598e44f404419ba4f84/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/haebun/.gradle/caches/8.13/transforms/b01bfa8b26f20b429cec16e013c5b11c/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/haebun/.gradle/caches/8.13/transforms/b01bfa8b26f20b429cec16e013c5b11c/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/37e3035544ab60009386d88b50182eee/transformed/coil-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/37e3035544ab60009386d88b50182eee/transformed/coil-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/74d11ec1c0b13a840d674e8dd85780de/transformed/coil-base-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.7.0] /Users/haebun/.gradle/caches/8.13/transforms/74d11ec1c0b13a840d674e8dd85780de/transformed/coil-base-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/haebun/.gradle/caches/8.13/transforms/87fb1e5a5174f512e60a55b24da80177/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/haebun/.gradle/caches/8.13/transforms/87fb1e5a5174f512e60a55b24da80177/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/haebun/.gradle/caches/8.13/transforms/2480cc181e8e1c870b7a3cc60cb624f1/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/haebun/.gradle/caches/8.13/transforms/2480cc181e8e1c870b7a3cc60cb624f1/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/haebun/.gradle/caches/8.13/transforms/6085e5afad1a0efd1331fe4908c1ecf9/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/haebun/.gradle/caches/8.13/transforms/6085e5afad1a0efd1331fe4908c1ecf9/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/aff5ba4f9581037c372ea3bf0f592be1/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/aff5ba4f9581037c372ea3bf0f592be1/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/7ef92f88e5d3edac6143795327b944c6/transformed/lifecycle-livedata-core-ktx-2.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/7ef92f88e5d3edac6143795327b944c6/transformed/lifecycle-livedata-core-ktx-2.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/3ab185040bc30327ab5db1106158bd35/transformed/lifecycle-livedata-core-2.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/3ab185040bc30327ab5db1106158bd35/transformed/lifecycle-livedata-core-2.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/ba5533b112b163742b9092ead4a9262e/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/ba5533b112b163742b9092ead4a9262e/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/b034857f452f7eb067704cfec0b022ee/transformed/savedstate-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/b034857f452f7eb067704cfec0b022ee/transformed/savedstate-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/dd2ba20426e9761e15adf2f6058387a4/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/dd2ba20426e9761e15adf2f6058387a4/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/05112e5f614155025c2c9760c04986fc/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /Users/haebun/.gradle/caches/8.13/transforms/05112e5f614155025c2c9760c04986fc/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/2be57e2429e5af60fc910ff2a10029cf/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/2be57e2429e5af60fc910ff2a10029cf/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/8d9ededaa5aff6d9e6e9fc59af74e0ff/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/8d9ededaa5aff6d9e6e9fc59af74e0ff/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/f66a94954ebf5eaa0bdf63cfe9eed523/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/f66a94954ebf5eaa0bdf63cfe9eed523/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb9cccdf80c2011e3c1341cb0db6efdf/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/bb9cccdf80c2011e3c1341cb0db6efdf/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-livedata:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/793c8eee94b7bd24a9d38d2ec542b2e9/transformed/runtime-livedata-1.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-livedata:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/793c8eee94b7bd24a9d38d2ec542b2e9/transformed/runtime-livedata-1.8.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/9c83c59be94a2adfa17bcb73a3d0e41e/transformed/lifecycle-livedata-2.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/9c83c59be94a2adfa17bcb73a3d0e41e/transformed/lifecycle-livedata-2.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/ab93004ee672c5f4d3f82bdb89645ed5/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/ab93004ee672c5f4d3f82bdb89645ed5/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/55aad7e45c7f4e99e25b3b661acac169/transformed/lifecycle-viewmodel-ktx-2.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/55aad7e45c7f4e99e25b3b661acac169/transformed/lifecycle-viewmodel-ktx-2.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/4a31556e5e263cece331847989500c8c/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/4a31556e5e263cece331847989500c8c/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/haebun/.gradle/caches/8.13/transforms/c6acb24d49cc90df6ef3e8a42a2fc9e3/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/haebun/.gradle/caches/8.13/transforms/c6acb24d49cc90df6ef3e8a42a2fc9e3/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/haebun/.gradle/caches/8.13/transforms/ba3c83141deeb54058831af182f00687/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/haebun/.gradle/caches/8.13/transforms/ba3c83141deeb54058831af182f00687/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/89fe98c70b81c9375a08a29e1ecb1a56/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/89fe98c70b81c9375a08a29e1ecb1a56/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/a42f2baee08dbb2737f76b39c7fe80b2/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/a42f2baee08dbb2737f76b39c7fe80b2/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/407024280f4c8a849c33aaf8741f0f93/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/407024280f4c8a849c33aaf8741f0f93/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/15cb1defb29b12d4b1296099a6b1176c/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /Users/haebun/.gradle/caches/8.13/transforms/15cb1defb29b12d4b1296099a6b1176c/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/8e22ef25c7c468aa66ae305c676ab353/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/8e22ef25c7c468aa66ae305c676ab353/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/2cd6922e28bde06917c60f35b63a4852/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/2cd6922e28bde06917c60f35b63a4852/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:21:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/3ea68e910cfe5bbeec0a0931a9f793a6/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/3ea68e910cfe5bbeec0a0931a9f793a6/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/4c31bae533bbf3ecbcfe9355ae4b889b/transformed/datastore-preferences-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences-core-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/4c31bae533bbf3ecbcfe9355ae4b889b/transformed/datastore-preferences-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/561ce52fa009518b0753abedd26d33d7/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/561ce52fa009518b0753abedd26d33d7/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/9e8e50ab4c1c1e51e0b283f2291bfa3c/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.7] /Users/haebun/.gradle/caches/8.13/transforms/9e8e50ab4c1c1e51e0b283f2291bfa3c/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/haebun/.gradle/caches/8.13/transforms/e471024dfbeb34d491c0c9061bd109a0/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/haebun/.gradle/caches/8.13/transforms/e471024dfbeb34d491c0c9061bd109a0/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/345b5ccbac19dc0883c9aef129192f2b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/345b5ccbac19dc0883c9aef129192f2b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:6:5-44
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:6:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/e227c6f5ef4b3340bfb5a2c1cfd1523e/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/haebun/.gradle/caches/8.13/transforms/e227c6f5ef4b3340bfb5a2c1cfd1523e/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/e25a24790426dad0fff17b55431e3145/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/e25a24790426dad0fff17b55431e3145/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/haebun/.gradle/caches/8.13/transforms/697451b567aa0d458f35333fde3421ff/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/haebun/.gradle/caches/8.13/transforms/697451b567aa0d458f35333fde3421ff/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/haebun/.gradle/caches/8.13/transforms/cf4de5be4fd22435d02316fce6ec068a/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/haebun/.gradle/caches/8.13/transforms/cf4de5be4fd22435d02316fce6ec068a/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.1] /Users/haebun/.gradle/caches/8.13/transforms/69abdb999c42c820447f3e748b159e5a/transformed/sqlite-framework-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.1] /Users/haebun/.gradle/caches/8.13/transforms/69abdb999c42c820447f3e748b159e5a/transformed/sqlite-framework-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-android:2.5.1] /Users/haebun/.gradle/caches/8.13/transforms/774acc39bb4da8a9ad733aa34abaf1e2/transformed/sqlite-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-android:2.5.1] /Users/haebun/.gradle/caches/8.13/transforms/774acc39bb4da8a9ad733aa34abaf1e2/transformed/sqlite-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/haebun/.gradle/caches/8.13/transforms/38ee0f1171c2ca3a326df6f63d6aa548/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/haebun/.gradle/caches/8.13/transforms/38ee0f1171c2ca3a326df6f63d6aa548/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+	android:targetSdkVersion
+		INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/haebun/Archive/docs/MiniProject2/liontalk/app/src/main/AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/6147f9a0bfa8f6e32eebad6596c145ad/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:24:9-32:20
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:11:9-19:20
+MERGED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:11:9-19:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:24:9-28:34
+MERGED from [androidx.startup:startup-runtime:1.2.0] /Users/haebun/.gradle/caches/8.13/transforms/ca58030a4c723776310219145cb49fb4/transformed/startup-runtime-1.2.0/AndroidManifest.xml:24:9-28:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/af6e8370845c1da6f78933952d6ebced/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+permission#com.likelion.liontalk.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+uses-permission#com.likelion.liontalk.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/haebun/.gradle/caches/8.13/transforms/8998c140d55636c32514e74826ce85f3/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.2] /Users/haebun/.gradle/caches/8.13/transforms/de5ae8d2dfb29adab9ef87b3fa568af5/transformed/lifecycle-process-2.9.2/AndroidManifest.xml:30:17-78
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:23:9-26:79
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:25:13-36
+	android:theme
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:26:13-76
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.8.3] /Users/haebun/.gradle/caches/8.13/transforms/0f1b4160b7b4ae866178409f79e53d4f/transformed/ui-test-manifest-1.8.3/AndroidManifest.xml:24:13-63
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime-android:2.7.2] /Users/haebun/.gradle/caches/8.13/transforms/b2c5b944673ecac537e078ceac3030fc/transformed/room-runtime-release/AndroidManifest.xml:25:13-74
+uses-permission#android.permission.INTERNET
+ADDED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:8:22-64
+meta-data#okhttp3.internal.platform.PlatformInitializer
+ADDED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:16:13-18:52
+	android:value
+		ADDED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:18:17-49
+	android:name
+		ADDED from [com.squareup.okhttp3:okhttp-android:5.1.0] /Users/haebun/.gradle/caches/8.13/transforms/730bb85ef05bf7f075ebd75df37ccce8/transformed/okhttp-release/AndroidManifest.xml:17:17-77
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/haebun/.gradle/caches/8.13/transforms/ed8fa49997f5b0e0a1c9f6d5fab9dc43/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
