@@ -36,6 +36,7 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
             withContext(Dispatchers.IO) {
                 MqttClient.connect()
             }
+
         }
     }
 
@@ -56,14 +57,11 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
 
 
             // 2. MQTT 보내기
-
-
             if (responseDto != null) {
                 val json = Gson().toJson(responseDto)
                 MqttClient.publish("liontalk/rooms/$roomId/message", json)
             }
 
-            // chatMessageDao.insert(messageEntity)
         }
     }
 

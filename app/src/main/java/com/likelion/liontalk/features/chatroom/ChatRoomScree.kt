@@ -75,7 +75,7 @@ fun ChatRoomScreen(roomId: Int){
                     Button(
                         onClick = {
                             if(inputMessage.isNotBlank()) {
-                                viewModel.sendMessage("gabseok",inputMessage)
+                                viewModel.sendMessage("haebun",inputMessage)
                                 inputMessage = ""
                                 keyboardController?.hide()
 

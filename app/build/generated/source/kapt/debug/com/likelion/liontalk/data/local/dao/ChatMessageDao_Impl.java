@@ -34,7 +34,7 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `chat_message` (`id`,`roomId`,`sender`,`content`,`createdAt`) VALUES (?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `chat_message` (`id`,`roomId`,`sender`,`content`,`createdAt`) VALUES (?,?,?,?,?)";
       }
 
       @Override
@@ -58,17 +58,18 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
   }
 
   @Override
-  public Object insert(final ChatMessageEntity message, final Continuation<? super Unit> arg1) {
+  public Object insert(final ChatMessageEntity message,
+      final Continuation<? super Unit> $completion) {
     if (message == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __insertAdapterOfChatMessageEntity.insert(_connection, message);
       return Unit.INSTANCE;
-    }, arg1);
+    }, $completion);
   }
 
   @Override
   public LiveData<List<ChatMessageEntity>> getMessagesForRoom(final int roomId) {
-    final String _sql = "SELECT * FROM chat_message WHERE roomId = ? ORDER BY id DESC";
+    final String _sql = "SELECT * FROM chat_message WHERE roomId = ? ORDER BY id ASC";
     return __db.getInvalidationTracker().createLiveData(new String[] {"chat_message"}, false, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
       try {
@@ -111,7 +112,52 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
   }
 
   @Override
-  public Object clear(final Continuation<? super Unit> arg0) {
+  public Object getMessages(final int roomId,
+      final Continuation<? super List<ChatMessageEntity>> $completion) {
+    final String _sql = "SELECT * FROM chat_message WHERE roomId = ?";
+    return DBUtil.performSuspending(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, roomId);
+        final int _columnIndexOfId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "id");
+        final int _columnIndexOfRoomId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "roomId");
+        final int _columnIndexOfSender = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "sender");
+        final int _columnIndexOfContent = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "content");
+        final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
+        final List<ChatMessageEntity> _result = new ArrayList<ChatMessageEntity>();
+        while (_stmt.step()) {
+          final ChatMessageEntity _item;
+          final int _tmpId;
+          _tmpId = (int) (_stmt.getLong(_columnIndexOfId));
+          final int _tmpRoomId;
+          _tmpRoomId = (int) (_stmt.getLong(_columnIndexOfRoomId));
+          final String _tmpSender;
+          if (_stmt.isNull(_columnIndexOfSender)) {
+            _tmpSender = null;
+          } else {
+            _tmpSender = _stmt.getText(_columnIndexOfSender);
+          }
+          final String _tmpContent;
+          if (_stmt.isNull(_columnIndexOfContent)) {
+            _tmpContent = null;
+          } else {
+            _tmpContent = _stmt.getText(_columnIndexOfContent);
+          }
+          final long _tmpCreatedAt;
+          _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
+          _item = new ChatMessageEntity(_tmpId,_tmpRoomId,_tmpSender,_tmpContent,_tmpCreatedAt);
+          _result.add(_item);
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object clear(final Continuation<? super Unit> $completion) {
     final String _sql = "DELETE FROM chat_message";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -121,7 +167,7 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
       } finally {
         _stmt.close();
       }
-    }, arg0);
+    }, $completion);
   }
 
   @NonNull
