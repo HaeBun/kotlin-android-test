@@ -6,12 +6,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.likelion.liontalk.features.chatroom.ChatRoomScreen
 import com.likelion.liontalk.features.chatroomlist.ChatRoomListScreen
+import com.likelion.liontalk.features.launcher.LauncherScreen
+import com.likelion.liontalk.features.setting.SettingScreen
 
 @Composable
 fun ChatAppNavigation(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Screen.ChatRoomListScreen.route
+        startDestination = Screen.LauncherScreen.route
     ) {
         composable(Screen.ChatRoomListScreen.route) {
             ChatRoomListScreen(navController)
@@ -22,6 +24,14 @@ fun ChatAppNavigation(navController: NavHostController) {
             if (roomId != null) {
                 ChatRoomScreen(roomId)
             }
+        }
+
+        composable(Screen.SettingScreen.route) {
+            SettingScreen(navController)
+        }
+
+        composable(Screen.LauncherScreen.route) {
+            LauncherScreen(navController)
         }
     }
 }

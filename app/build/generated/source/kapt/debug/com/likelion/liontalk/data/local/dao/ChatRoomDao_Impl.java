@@ -10,6 +10,7 @@ import androidx.room.util.SQLiteStatementUtil;
 import androidx.sqlite.SQLiteStatement;
 import com.likelion.liontalk.data.local.converter.Converter;
 import com.likelion.liontalk.data.local.entity.ChatRoomEntity;
+import com.likelion.liontalk.model.ChatUser;
 import java.lang.Class;
 import java.lang.Integer;
 import java.lang.NullPointerException;
@@ -41,7 +42,7 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `chat_room` (`id`,`title`,`owner`,`users`,`createdAt`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR REPLACE INTO `chat_room` (`id`,`title`,`owner`,`users`,`createdAt`) VALUES (?,?,?,?,?)";
       }
 
       @Override
@@ -53,16 +54,17 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
         } else {
           statement.bindText(2, entity.getTitle());
         }
-        if (entity.getOwner() == null) {
+        final String _tmp = __converter.fromUser(entity.getOwner());
+        if (_tmp == null) {
           statement.bindNull(3);
         } else {
-          statement.bindText(3, entity.getOwner());
+          statement.bindText(3, _tmp);
         }
-        final String _tmp = __converter.fromStringList(entity.getUsers());
-        if (_tmp == null) {
+        final String _tmp_1 = __converter.fromUserList(entity.getUsers());
+        if (_tmp_1 == null) {
           statement.bindNull(4);
         } else {
-          statement.bindText(4, _tmp);
+          statement.bindText(4, _tmp_1);
         }
         statement.bindLong(5, entity.getCreatedAt());
       }
@@ -131,20 +133,22 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
           } else {
             _tmpTitle = _stmt.getText(_columnIndexOfTitle);
           }
-          final String _tmpOwner;
-          if (_stmt.isNull(_columnIndexOfOwner)) {
-            _tmpOwner = null;
-          } else {
-            _tmpOwner = _stmt.getText(_columnIndexOfOwner);
-          }
-          final List<String> _tmpUsers;
+          final ChatUser _tmpOwner;
           final String _tmp;
-          if (_stmt.isNull(_columnIndexOfUsers)) {
+          if (_stmt.isNull(_columnIndexOfOwner)) {
             _tmp = null;
           } else {
-            _tmp = _stmt.getText(_columnIndexOfUsers);
+            _tmp = _stmt.getText(_columnIndexOfOwner);
           }
-          _tmpUsers = __converter.toStringList(_tmp);
+          _tmpOwner = __converter.toUser(_tmp);
+          final List<ChatUser> _tmpUsers;
+          final String _tmp_1;
+          if (_stmt.isNull(_columnIndexOfUsers)) {
+            _tmp_1 = null;
+          } else {
+            _tmp_1 = _stmt.getText(_columnIndexOfUsers);
+          }
+          _tmpUsers = __converter.toUserList(_tmp_1);
           final long _tmpCreatedAt;
           _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
           _item = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpCreatedAt);
@@ -180,20 +184,22 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
           } else {
             _tmpTitle = _stmt.getText(_columnIndexOfTitle);
           }
-          final String _tmpOwner;
-          if (_stmt.isNull(_columnIndexOfOwner)) {
-            _tmpOwner = null;
-          } else {
-            _tmpOwner = _stmt.getText(_columnIndexOfOwner);
-          }
-          final List<String> _tmpUsers;
+          final ChatUser _tmpOwner;
           final String _tmp;
-          if (_stmt.isNull(_columnIndexOfUsers)) {
+          if (_stmt.isNull(_columnIndexOfOwner)) {
             _tmp = null;
           } else {
-            _tmp = _stmt.getText(_columnIndexOfUsers);
+            _tmp = _stmt.getText(_columnIndexOfOwner);
           }
-          _tmpUsers = __converter.toStringList(_tmp);
+          _tmpOwner = __converter.toUser(_tmp);
+          final List<ChatUser> _tmpUsers;
+          final String _tmp_1;
+          if (_stmt.isNull(_columnIndexOfUsers)) {
+            _tmp_1 = null;
+          } else {
+            _tmp_1 = _stmt.getText(_columnIndexOfUsers);
+          }
+          _tmpUsers = __converter.toUserList(_tmp_1);
           final long _tmpCreatedAt;
           _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
           _result = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpCreatedAt);

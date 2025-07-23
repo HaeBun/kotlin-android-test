@@ -18,9 +18,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.likelion.liontalk.data.local.entity.ChatMessageEntity
+import com.likelion.liontalk.data.remote.dto.ChatMessageDto
 
 @Composable
-fun MyMessageItem(message:ChatMessageEntity) {
+fun MyMessageItem(message: ChatMessageEntity) {
     Row(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.End

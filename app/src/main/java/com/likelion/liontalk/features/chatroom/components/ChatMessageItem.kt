@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import com.likelion.liontalk.data.local.entity.ChatMessageEntity
 
 @Composable
-fun ChatMessageItem(message: ChatMessageEntity, isMe: Boolean) {
+fun ChatMessageItem(message: ChatMessageEntity, isMe : Boolean) {
     when {
         isMe -> MyMessageItem(message)
-        else -> OtherChatMessageItem(message)
+        else -> OtherMessageItem(message)
     }
 }
