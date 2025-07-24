@@ -8,7 +8,21 @@ object ChatRoomMapper {
         id,
         title,
         owner,
-        users = emptyList(),
+        users,
+        0,
+        0,
+        isLocked,
+        createdAt
+    )
+
+    fun ChatRoomDto.toModel() = ChatRoom(
+        id,
+        title,
+        owner,
+        users,
+        0,
+        0,
+        isLocked,
         createdAt
     )
 
@@ -16,7 +30,20 @@ object ChatRoomMapper {
         id,
         title,
         owner,
-        users = emptyList(),
+        users,
+        isLocked,
         createdAt
     )
+
+    fun ChatRoomEntity.toModel() = ChatRoom(
+        id,
+        title,
+        owner,
+        users,
+        unReadCount,
+        lastReadMessageId,
+        isLocked,
+        createdAt
+    )
+
 }

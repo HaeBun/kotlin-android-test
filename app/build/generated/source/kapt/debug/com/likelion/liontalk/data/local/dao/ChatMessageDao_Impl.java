@@ -12,6 +12,7 @@ import com.likelion.liontalk.data.local.converter.Converter;
 import com.likelion.liontalk.data.local.entity.ChatMessageEntity;
 import com.likelion.liontalk.model.ChatUser;
 import java.lang.Class;
+import java.lang.Integer;
 import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.Override;
@@ -65,13 +66,22 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
   }
 
   @Override
-  public Object insert(final ChatMessageEntity message,
-      final Continuation<? super Unit> $completion) {
+  public Object insert(final ChatMessageEntity message, final Continuation<? super Unit> arg1) {
     if (message == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __insertAdapterOfChatMessageEntity.insert(_connection, message);
       return Unit.INSTANCE;
-    }, $completion);
+    }, arg1);
+  }
+
+  @Override
+  public Object insertAll(final List<ChatMessageEntity> messages,
+      final Continuation<? super Unit> arg1) {
+    if (messages == null) throw new NullPointerException();
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      __insertAdapterOfChatMessageEntity.insert(_connection, messages);
+      return Unit.INSTANCE;
+    }, arg1);
   }
 
   @Override
@@ -168,7 +178,7 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
 
   @Override
   public Object getMessages(final int roomId,
-      final Continuation<? super List<ChatMessageEntity>> $completion) {
+      final Continuation<? super List<ChatMessageEntity>> arg1) {
     final String _sql = "SELECT * FROM chat_message WHERE roomId =?";
     return DBUtil.performSuspending(__db, true, false, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -210,11 +220,88 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object clear(final Continuation<? super Unit> $completion) {
+  public Object getLatestMessage(final int roomId,
+      final Continuation<? super ChatMessageEntity> arg1) {
+    final String _sql = "SELECT * FROM chat_message WHERE roomId =? ORDER BY id DESC LIMIT 1";
+    return DBUtil.performSuspending(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, roomId);
+        final int _columnIndexOfId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "id");
+        final int _columnIndexOfRoomId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "roomId");
+        final int _columnIndexOfSender = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "sender");
+        final int _columnIndexOfContent = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "content");
+        final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
+        final ChatMessageEntity _result;
+        if (_stmt.step()) {
+          final int _tmpId;
+          _tmpId = (int) (_stmt.getLong(_columnIndexOfId));
+          final int _tmpRoomId;
+          _tmpRoomId = (int) (_stmt.getLong(_columnIndexOfRoomId));
+          final ChatUser _tmpSender;
+          final String _tmp;
+          if (_stmt.isNull(_columnIndexOfSender)) {
+            _tmp = null;
+          } else {
+            _tmp = _stmt.getText(_columnIndexOfSender);
+          }
+          _tmpSender = __converter.toUser(_tmp);
+          final String _tmpContent;
+          if (_stmt.isNull(_columnIndexOfContent)) {
+            _tmpContent = null;
+          } else {
+            _tmpContent = _stmt.getText(_columnIndexOfContent);
+          }
+          final long _tmpCreatedAt;
+          _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
+          _result = new ChatMessageEntity(_tmpId,_tmpRoomId,_tmpSender,_tmpContent,_tmpCreatedAt);
+        } else {
+          _result = null;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    }, arg1);
+  }
+
+  @Override
+  public Object getUnreadMessageCount(final int roomId, final int lastReadMessageId,
+      final Continuation<? super Integer> arg2) {
+    final String _sql = "SELECT COUNT(*) FROM chat_message WHERE roomId = ? AND id > ?";
+    return DBUtil.performSuspending(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, roomId);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, lastReadMessageId);
+        final Integer _result;
+        if (_stmt.step()) {
+          final Integer _tmp;
+          if (_stmt.isNull(0)) {
+            _tmp = null;
+          } else {
+            _tmp = (int) (_stmt.getLong(0));
+          }
+          _result = _tmp;
+        } else {
+          _result = null;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    }, arg2);
+  }
+
+  @Override
+  public Object clear(final Continuation<? super Unit> arg0) {
     final String _sql = "DELETE FROM chat_message";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -224,7 +311,23 @@ public final class ChatMessageDao_Impl implements ChatMessageDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg0);
+  }
+
+  @Override
+  public Object deleteMessagesByRoomId(final int roomId, final Continuation<? super Unit> arg1) {
+    final String _sql = "DELETE FROM chat_message WHERE roomId = ? ";
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, roomId);
+        _stmt.step();
+        return Unit.INSTANCE;
+      } finally {
+        _stmt.close();
+      }
+    }, arg1);
   }
 
   @NonNull

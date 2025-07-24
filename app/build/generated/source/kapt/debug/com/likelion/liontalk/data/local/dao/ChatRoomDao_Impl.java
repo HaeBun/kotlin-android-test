@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.EntityDeleteOrUpdateAdapter;
 import androidx.room.EntityInsertAdapter;
 import androidx.room.RoomDatabase;
+import androidx.room.coroutines.FlowUtil;
 import androidx.room.util.DBUtil;
 import androidx.room.util.SQLiteStatementUtil;
 import androidx.sqlite.SQLiteStatement;
@@ -24,6 +25,7 @@ import java.util.List;
 import javax.annotation.processing.Generated;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
+import kotlinx.coroutines.flow.Flow;
 
 @Generated("androidx.room.RoomProcessor")
 @SuppressWarnings({"unchecked", "deprecation", "removal"})
@@ -42,7 +44,7 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `chat_room` (`id`,`title`,`owner`,`users`,`createdAt`) VALUES (?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `chat_room` (`id`,`title`,`owner`,`users`,`unReadCount`,`lastReadMessageId`,`isLocked`,`createdAt`) VALUES (?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -66,7 +68,11 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
         } else {
           statement.bindText(4, _tmp_1);
         }
-        statement.bindLong(5, entity.getCreatedAt());
+        statement.bindLong(5, entity.getUnReadCount());
+        statement.bindLong(6, entity.getLastReadMessageId());
+        final int _tmp_2 = entity.isLocked() ? 1 : 0;
+        statement.bindLong(7, _tmp_2);
+        statement.bindLong(8, entity.getCreatedAt());
       }
     };
     this.__deleteAdapterOfChatRoomEntity = new EntityDeleteOrUpdateAdapter<ChatRoomEntity>() {
@@ -85,12 +91,13 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
   }
 
   @Override
-  public Object insert(final ChatRoomEntity chatroom, final Continuation<? super Unit> arg1) {
+  public Object insert(final ChatRoomEntity chatroom,
+      final Continuation<? super Unit> $completion) {
     if (chatroom == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __insertAdapterOfChatRoomEntity.insert(_connection, chatroom);
       return Unit.INSTANCE;
-    }, arg1);
+    }, $completion);
   }
 
   @Override
@@ -103,12 +110,13 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
   }
 
   @Override
-  public Object delete(final ChatRoomEntity chatroom, final Continuation<? super Unit> arg1) {
+  public Object delete(final ChatRoomEntity chatroom,
+      final Continuation<? super Unit> $completion) {
     if (chatroom == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __deleteAdapterOfChatRoomEntity.handle(_connection, chatroom);
       return Unit.INSTANCE;
-    }, arg1);
+    }, $completion);
   }
 
   @Override
@@ -121,6 +129,9 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
         final int _columnIndexOfTitle = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "title");
         final int _columnIndexOfOwner = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "owner");
         final int _columnIndexOfUsers = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "users");
+        final int _columnIndexOfUnReadCount = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "unReadCount");
+        final int _columnIndexOfLastReadMessageId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "lastReadMessageId");
+        final int _columnIndexOfIsLocked = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "isLocked");
         final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
         final List<ChatRoomEntity> _result = new ArrayList<ChatRoomEntity>();
         while (_stmt.step()) {
@@ -149,9 +160,139 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
             _tmp_1 = _stmt.getText(_columnIndexOfUsers);
           }
           _tmpUsers = __converter.toUserList(_tmp_1);
+          final int _tmpUnReadCount;
+          _tmpUnReadCount = (int) (_stmt.getLong(_columnIndexOfUnReadCount));
+          final int _tmpLastReadMessageId;
+          _tmpLastReadMessageId = (int) (_stmt.getLong(_columnIndexOfLastReadMessageId));
+          final boolean _tmpIsLocked;
+          final int _tmp_2;
+          _tmp_2 = (int) (_stmt.getLong(_columnIndexOfIsLocked));
+          _tmpIsLocked = _tmp_2 != 0;
           final long _tmpCreatedAt;
           _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
-          _item = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpCreatedAt);
+          _item = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpUnReadCount,_tmpLastReadMessageId,_tmpIsLocked,_tmpCreatedAt);
+          _result.add(_item);
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
+  @Override
+  public List<ChatRoomEntity> getChatRoomsList() {
+    final String _sql = "SELECT * FROM chat_room ORDER BY id desc";
+    return DBUtil.performBlocking(__db, true, false, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        final int _columnIndexOfId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "id");
+        final int _columnIndexOfTitle = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "title");
+        final int _columnIndexOfOwner = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "owner");
+        final int _columnIndexOfUsers = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "users");
+        final int _columnIndexOfUnReadCount = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "unReadCount");
+        final int _columnIndexOfLastReadMessageId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "lastReadMessageId");
+        final int _columnIndexOfIsLocked = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "isLocked");
+        final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
+        final List<ChatRoomEntity> _result = new ArrayList<ChatRoomEntity>();
+        while (_stmt.step()) {
+          final ChatRoomEntity _item;
+          final int _tmpId;
+          _tmpId = (int) (_stmt.getLong(_columnIndexOfId));
+          final String _tmpTitle;
+          if (_stmt.isNull(_columnIndexOfTitle)) {
+            _tmpTitle = null;
+          } else {
+            _tmpTitle = _stmt.getText(_columnIndexOfTitle);
+          }
+          final ChatUser _tmpOwner;
+          final String _tmp;
+          if (_stmt.isNull(_columnIndexOfOwner)) {
+            _tmp = null;
+          } else {
+            _tmp = _stmt.getText(_columnIndexOfOwner);
+          }
+          _tmpOwner = __converter.toUser(_tmp);
+          final List<ChatUser> _tmpUsers;
+          final String _tmp_1;
+          if (_stmt.isNull(_columnIndexOfUsers)) {
+            _tmp_1 = null;
+          } else {
+            _tmp_1 = _stmt.getText(_columnIndexOfUsers);
+          }
+          _tmpUsers = __converter.toUserList(_tmp_1);
+          final int _tmpUnReadCount;
+          _tmpUnReadCount = (int) (_stmt.getLong(_columnIndexOfUnReadCount));
+          final int _tmpLastReadMessageId;
+          _tmpLastReadMessageId = (int) (_stmt.getLong(_columnIndexOfLastReadMessageId));
+          final boolean _tmpIsLocked;
+          final int _tmp_2;
+          _tmp_2 = (int) (_stmt.getLong(_columnIndexOfIsLocked));
+          _tmpIsLocked = _tmp_2 != 0;
+          final long _tmpCreatedAt;
+          _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
+          _item = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpUnReadCount,_tmpLastReadMessageId,_tmpIsLocked,_tmpCreatedAt);
+          _result.add(_item);
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
+  @Override
+  public Flow<List<ChatRoomEntity>> getChatRoomsFlow() {
+    final String _sql = "SELECT * FROM chat_room ORDER BY id desc";
+    return FlowUtil.createFlow(__db, false, new String[] {"chat_room"}, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        final int _columnIndexOfId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "id");
+        final int _columnIndexOfTitle = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "title");
+        final int _columnIndexOfOwner = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "owner");
+        final int _columnIndexOfUsers = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "users");
+        final int _columnIndexOfUnReadCount = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "unReadCount");
+        final int _columnIndexOfLastReadMessageId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "lastReadMessageId");
+        final int _columnIndexOfIsLocked = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "isLocked");
+        final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
+        final List<ChatRoomEntity> _result = new ArrayList<ChatRoomEntity>();
+        while (_stmt.step()) {
+          final ChatRoomEntity _item;
+          final int _tmpId;
+          _tmpId = (int) (_stmt.getLong(_columnIndexOfId));
+          final String _tmpTitle;
+          if (_stmt.isNull(_columnIndexOfTitle)) {
+            _tmpTitle = null;
+          } else {
+            _tmpTitle = _stmt.getText(_columnIndexOfTitle);
+          }
+          final ChatUser _tmpOwner;
+          final String _tmp;
+          if (_stmt.isNull(_columnIndexOfOwner)) {
+            _tmp = null;
+          } else {
+            _tmp = _stmt.getText(_columnIndexOfOwner);
+          }
+          _tmpOwner = __converter.toUser(_tmp);
+          final List<ChatUser> _tmpUsers;
+          final String _tmp_1;
+          if (_stmt.isNull(_columnIndexOfUsers)) {
+            _tmp_1 = null;
+          } else {
+            _tmp_1 = _stmt.getText(_columnIndexOfUsers);
+          }
+          _tmpUsers = __converter.toUserList(_tmp_1);
+          final int _tmpUnReadCount;
+          _tmpUnReadCount = (int) (_stmt.getLong(_columnIndexOfUnReadCount));
+          final int _tmpLastReadMessageId;
+          _tmpLastReadMessageId = (int) (_stmt.getLong(_columnIndexOfLastReadMessageId));
+          final boolean _tmpIsLocked;
+          final int _tmp_2;
+          _tmp_2 = (int) (_stmt.getLong(_columnIndexOfIsLocked));
+          _tmpIsLocked = _tmp_2 != 0;
+          final long _tmpCreatedAt;
+          _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
+          _item = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpUnReadCount,_tmpLastReadMessageId,_tmpIsLocked,_tmpCreatedAt);
           _result.add(_item);
         }
         return _result;
@@ -173,6 +314,9 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
         final int _columnIndexOfTitle = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "title");
         final int _columnIndexOfOwner = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "owner");
         final int _columnIndexOfUsers = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "users");
+        final int _columnIndexOfUnReadCount = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "unReadCount");
+        final int _columnIndexOfLastReadMessageId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "lastReadMessageId");
+        final int _columnIndexOfIsLocked = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "isLocked");
         final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
         final ChatRoomEntity _result;
         if (_stmt.step()) {
@@ -200,9 +344,17 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
             _tmp_1 = _stmt.getText(_columnIndexOfUsers);
           }
           _tmpUsers = __converter.toUserList(_tmp_1);
+          final int _tmpUnReadCount;
+          _tmpUnReadCount = (int) (_stmt.getLong(_columnIndexOfUnReadCount));
+          final int _tmpLastReadMessageId;
+          _tmpLastReadMessageId = (int) (_stmt.getLong(_columnIndexOfLastReadMessageId));
+          final boolean _tmpIsLocked;
+          final int _tmp_2;
+          _tmp_2 = (int) (_stmt.getLong(_columnIndexOfIsLocked));
+          _tmpIsLocked = _tmp_2 != 0;
           final long _tmpCreatedAt;
           _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
-          _result = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpCreatedAt);
+          _result = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpUnReadCount,_tmpLastReadMessageId,_tmpIsLocked,_tmpCreatedAt);
         } else {
           _result = null;
         }
@@ -214,7 +366,70 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
   }
 
   @Override
-  public Object getCount(final Continuation<? super Integer> arg0) {
+  public Flow<ChatRoomEntity> getChatRoomFlow(final int id) {
+    final String _sql = "SELECT * FROM chat_room WHERE id=?";
+    return FlowUtil.createFlow(__db, false, new String[] {"chat_room"}, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, id);
+        final int _columnIndexOfId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "id");
+        final int _columnIndexOfTitle = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "title");
+        final int _columnIndexOfOwner = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "owner");
+        final int _columnIndexOfUsers = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "users");
+        final int _columnIndexOfUnReadCount = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "unReadCount");
+        final int _columnIndexOfLastReadMessageId = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "lastReadMessageId");
+        final int _columnIndexOfIsLocked = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "isLocked");
+        final int _columnIndexOfCreatedAt = SQLiteStatementUtil.getColumnIndexOrThrow(_stmt, "createdAt");
+        final ChatRoomEntity _result;
+        if (_stmt.step()) {
+          final int _tmpId;
+          _tmpId = (int) (_stmt.getLong(_columnIndexOfId));
+          final String _tmpTitle;
+          if (_stmt.isNull(_columnIndexOfTitle)) {
+            _tmpTitle = null;
+          } else {
+            _tmpTitle = _stmt.getText(_columnIndexOfTitle);
+          }
+          final ChatUser _tmpOwner;
+          final String _tmp;
+          if (_stmt.isNull(_columnIndexOfOwner)) {
+            _tmp = null;
+          } else {
+            _tmp = _stmt.getText(_columnIndexOfOwner);
+          }
+          _tmpOwner = __converter.toUser(_tmp);
+          final List<ChatUser> _tmpUsers;
+          final String _tmp_1;
+          if (_stmt.isNull(_columnIndexOfUsers)) {
+            _tmp_1 = null;
+          } else {
+            _tmp_1 = _stmt.getText(_columnIndexOfUsers);
+          }
+          _tmpUsers = __converter.toUserList(_tmp_1);
+          final int _tmpUnReadCount;
+          _tmpUnReadCount = (int) (_stmt.getLong(_columnIndexOfUnReadCount));
+          final int _tmpLastReadMessageId;
+          _tmpLastReadMessageId = (int) (_stmt.getLong(_columnIndexOfLastReadMessageId));
+          final boolean _tmpIsLocked;
+          final int _tmp_2;
+          _tmp_2 = (int) (_stmt.getLong(_columnIndexOfIsLocked));
+          _tmpIsLocked = _tmp_2 != 0;
+          final long _tmpCreatedAt;
+          _tmpCreatedAt = _stmt.getLong(_columnIndexOfCreatedAt);
+          _result = new ChatRoomEntity(_tmpId,_tmpTitle,_tmpOwner,_tmpUsers,_tmpUnReadCount,_tmpLastReadMessageId,_tmpIsLocked,_tmpCreatedAt);
+        } else {
+          _result = null;
+        }
+        return _result;
+      } finally {
+        _stmt.close();
+      }
+    });
+  }
+
+  @Override
+  public Object getCount(final Continuation<? super Integer> $completion) {
     final String _sql = "SELECT COUNT(*) FROM chat_room";
     return DBUtil.performSuspending(__db, true, false, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -235,11 +450,35 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, arg0);
+    }, $completion);
   }
 
   @Override
-  public Object clear(final Continuation<? super Unit> arg0) {
+  public Object updateUsers(final int id, final List<ChatUser> users,
+      final Continuation<? super Unit> $completion) {
+    final String _sql = "UPDATE chat_room SET users = ? WHERE id = ?";
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        final String _tmp = __converter.fromUserList(users);
+        if (_tmp == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindText(_argIndex, _tmp);
+        }
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, id);
+        _stmt.step();
+        return Unit.INSTANCE;
+      } finally {
+        _stmt.close();
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object clear(final Continuation<? super Unit> $completion) {
     final String _sql = "DELETE FROM chat_room";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -249,7 +488,65 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, arg0);
+    }, $completion);
+  }
+
+  @Override
+  public Object updateLastReadMessageId(final int id, final int lastReadMessageId,
+      final Continuation<? super Unit> $completion) {
+    final String _sql = "UPDATE chat_room SET lastReadMessageId =? WHERE id =?";
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, lastReadMessageId);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, id);
+        _stmt.step();
+        return Unit.INSTANCE;
+      } finally {
+        _stmt.close();
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object updateUnReadCount(final int id, final int unReadCount,
+      final Continuation<? super Unit> $completion) {
+    final String _sql = "UPDATE chat_room SET unReadCount =? WHERE id=?";
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, unReadCount);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, id);
+        _stmt.step();
+        return Unit.INSTANCE;
+      } finally {
+        _stmt.close();
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object updateLockStatus(final int id, final boolean isLocked,
+      final Continuation<? super Unit> $completion) {
+    final String _sql = "UPDATE chat_room SET isLocked = ? WHERE id=?";
+    return DBUtil.performSuspending(__db, false, true, (_connection) -> {
+      final SQLiteStatement _stmt = _connection.prepare(_sql);
+      try {
+        int _argIndex = 1;
+        final int _tmp = isLocked ? 1 : 0;
+        _stmt.bindLong(_argIndex, _tmp);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, id);
+        _stmt.step();
+        return Unit.INSTANCE;
+      } finally {
+        _stmt.close();
+      }
+    }, $completion);
   }
 
   @NonNull

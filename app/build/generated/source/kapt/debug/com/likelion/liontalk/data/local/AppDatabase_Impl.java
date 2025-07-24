@@ -35,13 +35,13 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected RoomOpenDelegate createOpenDelegate() {
-    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(6, "f773a8b5585121cda9fbbec0897d8fa5", "fed28ac6da3299dea2dc0c28d83057ae") {
+    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(11, "99b96a5a6a4d9cb913d3d00b7aeaf197", "f7adb3247e8043b2f25b02240aaf1f8f") {
       @Override
       public void createAllTables(@NonNull final SQLiteConnection connection) {
-        SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_room` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `owner` TEXT NOT NULL, `users` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
+        SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_room` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `owner` TEXT NOT NULL, `users` TEXT NOT NULL, `unReadCount` INTEGER NOT NULL, `lastReadMessageId` INTEGER NOT NULL, `isLocked` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_message` (`id` INTEGER NOT NULL, `roomId` INTEGER NOT NULL, `sender` TEXT NOT NULL, `content` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        SQLite.execSQL(connection, "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f773a8b5585121cda9fbbec0897d8fa5')");
+        SQLite.execSQL(connection, "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '99b96a5a6a4d9cb913d3d00b7aeaf197')");
       }
 
       @Override
@@ -72,11 +72,14 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull
       public RoomOpenDelegate.ValidationResult onValidateSchema(
           @NonNull final SQLiteConnection connection) {
-        final Map<String, TableInfo.Column> _columnsChatRoom = new HashMap<String, TableInfo.Column>(5);
+        final Map<String, TableInfo.Column> _columnsChatRoom = new HashMap<String, TableInfo.Column>(8);
         _columnsChatRoom.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsChatRoom.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsChatRoom.put("owner", new TableInfo.Column("owner", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsChatRoom.put("users", new TableInfo.Column("users", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsChatRoom.put("unReadCount", new TableInfo.Column("unReadCount", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsChatRoom.put("lastReadMessageId", new TableInfo.Column("lastReadMessageId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsChatRoom.put("isLocked", new TableInfo.Column("isLocked", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsChatRoom.put("createdAt", new TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final Set<TableInfo.ForeignKey> _foreignKeysChatRoom = new HashSet<TableInfo.ForeignKey>(0);
         final Set<TableInfo.Index> _indicesChatRoom = new HashSet<TableInfo.Index>(0);
