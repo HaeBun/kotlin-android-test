@@ -2,6 +2,7 @@ package com.likelion.liontalk.features.chatroomlist
 
 
 import android.app.Application
+import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,6 +31,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -67,6 +69,17 @@ fun ChatRoomListScreen(navController : NavHostController) {
         ChatRoomTab.JOINED to "참여중",
         ChatRoomTab.NOT_JOINED to "미참여"
     )
+
+    val explodedRoomId = navController.currentBackStackEntry?.savedStateHandle?.get<Int>("explodedRoomId")
+    LaunchedEffect(explodedRoomId) {
+        explodedRoomId?.let {
+            viewModel.removeChatRoom(explodedRoomId)
+
+            navController.currentBackStackEntry?.savedStateHandle?.remove<Int>("explodedRoomId")
+
+        }
+    }
+
 
     Scaffold(
         topBar = {
@@ -136,6 +149,22 @@ fun ChatRoomListScreen(navController : NavHostController) {
                                     room = room,
                                     isOwner = room.owner.name == viewModel.me.name,
                                     onClick = {
+
+                                        val isMeOwner = room.owner.name == viewModel.me.name
+                                        val isMeParticipant = room.users.any { it.name == viewModel.me.name }
+
+                                        if(!room.isLocked || isMeOwner || isMeParticipant) {
+                                            navController.navigate(
+                                                Screen.ChatRoomScreen.createRoute(room.id)
+                                            )
+                                        } else {
+                                            Toast.makeText(
+                                                context,
+                                                "잠 긴 방",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+
                                         navController.navigate(
                                             Screen.ChatRoomScreen.createRoute(room.id)
                                         )

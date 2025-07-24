@@ -9,6 +9,7 @@ import com.likelion.liontalk.data.local.entity.ChatRoomEntity
 import com.likelion.liontalk.data.remote.datasource.ChatRoomRemoteDataSource
 import com.likelion.liontalk.data.remote.dto.ChatRoomDto
 import com.likelion.liontalk.data.remote.dto.addUserIfNotExists
+import com.likelion.liontalk.data.remote.dto.removeUser
 import com.likelion.liontalk.model.ChatRoom
 import com.likelion.liontalk.model.ChatRoomMapper.toEntity
 import com.likelion.liontalk.model.ChatRoomMapper.toModel
@@ -55,6 +56,8 @@ class ChatRoomRepository(context: Context) {
                 val unReadCount = chatMessageLocal.getUnreadMessageCount(remoteRoom.id,lastReadMessageId)
 
                 if (localRoom != null) {
+                    local.updateLockStatus(remoteRoom.id, remoteRoom.isLocked)
+
                     // 기존 채팅방이 있으면 users만 업데이트
                     local.updateUsers(remoteRoom.id, remoteRoom.users)
                     Log.d("ChattingRoom-Sync", "기존 채팅방 '${remoteRoom.id}'의 참여자:${remoteRoom.users} 업데이트")
@@ -87,15 +90,22 @@ class ChatRoomRepository(context: Context) {
 
     // 서버 및 로컬 room db 입장 처리
     suspend fun enterRoom(user:ChatUser,roomId: Int): ChatRoom {
-        //1.서버로 부터 최신 룸 정보를 가져옴
-        val remoteRoom = remote.fetchRoom(roomId)
-        val requestDto = remoteRoom.addUserIfNotExists(user)
-
-        val updatedRoom = remote.updateRoom(requestDto)
-        if(updatedRoom != null) {
-            local.updateUsers(roomId,updatedRoom.users)
+        try {
+            //1.서버로 부터 최신 룸 정보를 가져옴
+            Log.d("","enterRoom - user : $user roomId:$roomId")
+            val remoteRoom = remote.fetchRoom(roomId)
+            val requestDto = remoteRoom.addUserIfNotExists(user)
+            Log.d("","enterRoom - requestDto : $requestDto")
+            val updatedRoom = remote.updateRoom(requestDto)
+            if (updatedRoom != null) {
+                Log.d("","enterRoom - updatedRoom : $updatedRoom")
+                local.updateUsers(roomId, updatedRoom.users)
+            }
+            return updatedRoom?.toModel() ?: throw Exception("서버 입장 처리 실패")
+        } catch(e:Exception) {
+            Log.e("","enterroom error",e)
+            throw Exception("서버 입장 처리 실패")
         }
-        return updatedRoom?.toModel() ?: throw Exception("서버 입장 처리 실패")
     }
 
     suspend fun updateLastReadMessageId(roomId : Int,lastReadMessageId: Int) {
@@ -123,9 +133,38 @@ class ChatRoomRepository(context: Context) {
         return local.getChatRoom(roomId)?.toModel()
     }
 
+
     fun getChatRoomFlow(roomId: Int):Flow<ChatRoom> {
         return local.getChatRoomFlow(roomId).map { it?.toModel() ?:
-            throw Exception("채팅방이 존재하지 않습니다.") }
+            throw Exception("해당 채팅방이 없습니다.")}
+    }
+
+    suspend fun removeUserFromRoom(user:ChatUser, roomId: Int) {
+        val room = remote.fetchRoom(roomId)
+        if(room != null) {
+            val updated = room.removeUser(user)
+            val updatedRoom = remote.updateRoom(updated)
+            if(updatedRoom != null) {
+                local.updateUsers(roomId,updatedRoom.users)
+            }
+        } else {
+            throw Exception("퇴장실패 : 채팅방 정보가 없습니다.")
+        }
+    }
+
+    suspend fun toggleLock(isLock: Boolean, roomId: Int) {
+        try {
+            val remoteRoom = remote.fetchRoom(roomId)
+            if (remoteRoom != null) {
+                val updated = remoteRoom.copy(isLocked = isLock)
+                val result = remote.updateRoom(updated) ?: throw Exception("방 잠금($isLock) 실패")
+                result?.let {
+                    local.updateLockStatus(roomId, isLock)
+                }
+            }
+        } catch (e:Exception) {
+            throw Exception("방 잠금($isLock) 실패", e)
+        }
     }
 
 

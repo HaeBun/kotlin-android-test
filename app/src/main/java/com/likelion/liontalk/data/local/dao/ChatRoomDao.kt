@@ -38,7 +38,6 @@ interface ChatRoomDao {
     @Query("SELECT * FROM chat_room WHERE id=:id")
     fun getChatRoomFlow(id : Int) : Flow<ChatRoomEntity?>
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(chatRooms : List<ChatRoomEntity>)
 

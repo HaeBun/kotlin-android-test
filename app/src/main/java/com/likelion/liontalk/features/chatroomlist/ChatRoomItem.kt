@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,9 +18,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -51,11 +54,11 @@ fun ChatRoomItem(room: ChatRoom,
                  onLongPressLock:(ChatRoom) -> Unit) {
 
     Card(
-       modifier = Modifier.fillMaxWidth().padding(16.dp)
-           .combinedClickable (
-               onClick = { onClick(room)},
-               onLongClick = {}
-           ),
+        modifier = Modifier.fillMaxWidth().padding(16.dp)
+            .combinedClickable (
+                onClick = { onClick(room)},
+                onLongClick = {}
+            ),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
@@ -141,20 +144,28 @@ fun ChatRoomItem(room: ChatRoom,
                         modifier = Modifier.weight(1f)
                     )
 
-                if (room.unReadCount > 0) {
-                    Box(
-                        modifier = Modifier.background(Color.Red, shape = CircleShape)
-                            .padding(horizontal = 8.dp, vertical = 4.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = room.unReadCount.toString(),
-                            color = Color.White,
-                            fontSize = 12.sp,
-                            fontWeight = FontWeight.Bold
+                    if (room.unReadCount > 0) {
+                        Box(
+                            modifier = Modifier.background(Color.Red, shape = CircleShape)
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = room.unReadCount.toString(),
+                                color = Color.White,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+
+                    if(room.isLocked) {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = "방 잠김",
+                            modifier = Modifier.fillMaxSize()
                         )
                     }
-                }
 
                 }
 

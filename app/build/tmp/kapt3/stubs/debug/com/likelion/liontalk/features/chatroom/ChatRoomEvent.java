@@ -1,6 +1,6 @@
 package com.likelion.liontalk.features.chatroom;
 
-@kotlin.Metadata(mv = {2, 2, 0}, k = 1, xi = 48, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b6\u0018\u00002\u00020\u0001:\u0006\u0004\u0005\u0006\u0007\b\tB\t\b\u0004\u00a2\u0006\u0004\b\u0002\u0010\u0003\u0082\u0001\u0006\n\u000b\f\r\u000e\u000f\u00a8\u0006\u0010"}, d2 = {"Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent;", "", "<init>", "()V", "TypingStarted", "TypingStopped", "ChatRoomEnter", "ChatRoomLeave", "ScrollToBottom", "ClearInput", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ChatRoomEnter;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ChatRoomLeave;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ClearInput;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ScrollToBottom;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$TypingStarted;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$TypingStopped;", "app_debug"})
+@kotlin.Metadata(mv = {2, 2, 0}, k = 1, xi = 48, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b6\u0018\u00002\u00020\u0001:\b\u0004\u0005\u0006\u0007\b\t\n\u000bB\t\b\u0004\u00a2\u0006\u0004\b\u0002\u0010\u0003\u0082\u0001\b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u00a8\u0006\u0014"}, d2 = {"Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent;", "", "<init>", "()V", "TypingStarted", "TypingStopped", "ChatRoomEnter", "ChatRoomLeave", "ScrollToBottom", "ClearInput", "Kicked", "Exploded", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ChatRoomEnter;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ChatRoomLeave;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ClearInput;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$Exploded;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$Kicked;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$ScrollToBottom;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$TypingStarted;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$TypingStopped;", "app_debug"})
 public abstract class ChatRoomEvent {
     
     private ChatRoomEvent() {
@@ -99,6 +99,24 @@ public abstract class ChatRoomEvent {
         public static final com.likelion.liontalk.features.chatroom.ChatRoomEvent.ClearInput INSTANCE = null;
         
         private ClearInput() {
+        }
+    }
+    
+    @kotlin.Metadata(mv = {2, 2, 0}, k = 1, xi = 48, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u00c6\u0002\u0018\u00002\u00020\u0001B\t\b\u0002\u00a2\u0006\u0004\b\u0002\u0010\u0003\u00a8\u0006\u0004"}, d2 = {"Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$Exploded;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent;", "<init>", "()V", "app_debug"})
+    public static final class Exploded extends com.likelion.liontalk.features.chatroom.ChatRoomEvent {
+        @org.jetbrains.annotations.NotNull()
+        public static final com.likelion.liontalk.features.chatroom.ChatRoomEvent.Exploded INSTANCE = null;
+        
+        private Exploded() {
+        }
+    }
+    
+    @kotlin.Metadata(mv = {2, 2, 0}, k = 1, xi = 48, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u00c6\u0002\u0018\u00002\u00020\u0001B\t\b\u0002\u00a2\u0006\u0004\b\u0002\u0010\u0003\u00a8\u0006\u0004"}, d2 = {"Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent$Kicked;", "Lcom/likelion/liontalk/features/chatroom/ChatRoomEvent;", "<init>", "()V", "app_debug"})
+    public static final class Kicked extends com.likelion.liontalk.features.chatroom.ChatRoomEvent {
+        @org.jetbrains.annotations.NotNull()
+        public static final com.likelion.liontalk.features.chatroom.ChatRoomEvent.Kicked INSTANCE = null;
+        
+        private Kicked() {
         }
     }
     

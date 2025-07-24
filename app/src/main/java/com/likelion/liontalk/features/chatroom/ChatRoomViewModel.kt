@@ -10,6 +10,7 @@ import com.google.gson.Gson
 import com.likelion.liontalk.data.local.AppDatabase
 import com.likelion.liontalk.data.local.entity.ChatMessageEntity
 import com.likelion.liontalk.data.remote.dto.ChatMessageDto
+import com.likelion.liontalk.data.remote.dto.KickMessageDto
 import com.likelion.liontalk.data.remote.dto.PresenceMessageDto
 import com.likelion.liontalk.data.remote.dto.TypingMessageDto
 import com.likelion.liontalk.data.remote.mqtt.MqttClient
@@ -32,6 +33,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okio.Lock
 
 class ChatRoomViewModel(application: Application, private val roomId: Int) : ViewModel(){
     private val chatMessageRepository = ChatMessageRepository(application.applicationContext)
@@ -64,6 +66,7 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
 
     val me : ChatUser get() = userPreferenceRepository.requireMe()
 
+    // 현재 채팅방 정보
     private val _room = MutableStateFlow<ChatRoom?>(null)
     val room: StateFlow<ChatRoom?> = _room
 
@@ -73,26 +76,26 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
     init {
         viewModelScope.launch {
 
-            withContext(Dispatchers.IO) {
-                chatMessageRepository.syncFromServer(roomId)
+            try {
+                withContext(Dispatchers.IO) {
+                    chatMessageRepository.syncFromServer(roomId)
+                }
+
+                withContext(Dispatchers.IO) {
+                    subscribeToMqttTopics()
+                }
+
+                loadRoomInfo()
+
+                //최초 채팅방 진입시 입장 이벤트 전송
+                publishEnterStatus()
+            } catch ( e : Exception) {
+                Log.e("CRVM" , e.stackTraceToString())
             }
-
-            withContext(Dispatchers.IO) {
-                MqttClient.connect()
-            }
-
-            withContext(Dispatchers.IO) {
-                subscribeToMqttTopics()
-            }
-
-            loadRoomInfo()
-
-            //최초 채팅방 진입시 입장 이벤트 전송
-            publishEnterStatus()
         }
     }
 
-    fun loadRoomInfo() {
+    private fun loadRoomInfo() {
         viewModelScope.launch {
             chatRoomRepository.getChatRoomFlow(roomId).collect { room ->
                 room.let {
@@ -101,7 +104,6 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
             }
         }
     }
-
 
     // 메세지 전송
     fun sendMessage(content: String) {
@@ -130,7 +132,7 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
     }
 
     // MQTT - methods
-    private val topics = listOf("message","typing","enter","leave")
+    private val topics = listOf("message","typing","enter","leave","kick","explod", "lock")
     //MQTT 구독 및 메세지 수신 처리
     private fun subscribeToMqttTopics() {
 //        MqttClient.connect()
@@ -153,8 +155,73 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
             topic.endsWith("/typing") -> onReceivedTyping(message)
             topic.endsWith("/enter") -> onReceivedEnter(message)
             topic.endsWith("/leave") -> onReceivedLeave(message)
+            topic.endsWith("/kick") -> onReceivedKick(message)
+            topic.endsWith("/explod") -> onReceivedExplod(message)
+            topic.endsWith("/lock") -> onReceivedLocked(message)
+
         }
     }
+
+    fun publishLockStatus() {
+        val json = Gson().toJson(PresenceMessageDto(me.name))
+        MqttClient.publish("liontalk/rooms/$roomId/lock",json)
+    }
+
+    fun toggleRoomLock(isLock: Boolean) {
+        viewModelScope.launch {
+            chatRoomRepository.toggleLock(isLock, roomId)
+
+            publishLockStatus()
+
+        }
+    }
+
+    fun onReceivedLocked(message: String) {
+        val dto = Gson().fromJson(message, PresenceMessageDto::class.java)
+        if(dto.sender != me.name){
+            viewModelScope.launch {
+                withContext(Dispatchers.IO) {
+                    chatRoomRepository.syncFromServer()
+                }
+            }
+        }
+    }
+
+
+    private fun onReceivedExplod(message: String) {
+        val dto = Gson().fromJson(message, PresenceMessageDto::class.java)
+        if(dto.sender != me.name){
+            _explodeState.value = true
+//            viewModelScope.launch {
+//                _event.emit(ChatRoomEvent.Exploded)
+//            }
+        }
+    }
+
+    private val _explodeState = MutableStateFlow(false)
+    val explodeState : StateFlow<Boolean> = _explodeState
+
+    fun triggerExplosion() {
+        _explodeState.value = true
+
+        viewModelScope.launch {
+            publishExplod()
+        }
+    }
+    private fun publishExplod() {
+        val json = Gson().toJson(PresenceMessageDto(me.name))
+        MqttClient.publish("liontalk/rooms/$roomId/explod",json)
+    }
+
+    private fun onReceivedKick(message: String) {
+        val dto = Gson().fromJson(message,KickMessageDto::class.java)
+        if(dto.target == me.name) {
+            viewModelScope.launch {
+                _event.emit(ChatRoomEvent.Kicked)
+            }
+        }
+    }
+
     //채팅방 입장 메세지 핸들러
     private fun onReceivedEnter(message: String) {
         val dto = Gson().fromJson(message, PresenceMessageDto::class.java)
@@ -250,9 +317,24 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
     // 채팅방 나가기
     fun leaveRoom(onComplete:() -> Unit) {
         viewModelScope.launch {
+
+            chatRoomRepository.removeUserFromRoom(me,roomId)
+
             publishLeaveStatus()
 
-            onComplete()
+            withContext(Dispatchers.Main) {
+                onComplete()
+            }
+        }
+    }
+
+    fun kickUser(user: ChatUser, onComplete: () -> Unit) {
+        viewModelScope.launch {
+            chatRoomRepository.removeUserFromRoom(user,roomId)
+            publishKick(user)
+            withContext(Dispatchers.Main) {
+                onComplete()
+            }
         }
     }
 
@@ -277,7 +359,10 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
 
         // 서버 및 로컬 입장 처리
         viewModelScope.launch {
-            chatRoomRepository.enterRoom(me,roomId)
+            withContext(Dispatchers.IO){
+                chatRoomRepository.enterRoom(me,roomId)
+            }
+
 
             val latestMessage = chatMessageRepository.getLatestMessage(roomId)
 
@@ -295,4 +380,14 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
         val json = Gson().toJson(PresenceMessageDto(me.name))
         MqttClient.publish("liontalk/rooms/$roomId/leave",json)
     }
+
+    // 사용자 추방 하기 이벤트 퍼블리시
+    fun publishKick(user:ChatUser) {
+        val data = mapOf("target" to user.name)
+        val json = Gson().toJson(data)
+        MqttClient.publish("liontalk/rooms/$roomId/kick",json)
+    }
+
+
+
 }

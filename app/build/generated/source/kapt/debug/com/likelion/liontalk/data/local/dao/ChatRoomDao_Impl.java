@@ -91,13 +91,12 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
   }
 
   @Override
-  public Object insert(final ChatRoomEntity chatroom,
-      final Continuation<? super Unit> $completion) {
+  public Object insert(final ChatRoomEntity chatroom, final Continuation<? super Unit> arg1) {
     if (chatroom == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __insertAdapterOfChatRoomEntity.insert(_connection, chatroom);
       return Unit.INSTANCE;
-    }, $completion);
+    }, arg1);
   }
 
   @Override
@@ -110,13 +109,12 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
   }
 
   @Override
-  public Object delete(final ChatRoomEntity chatroom,
-      final Continuation<? super Unit> $completion) {
+  public Object delete(final ChatRoomEntity chatroom, final Continuation<? super Unit> arg1) {
     if (chatroom == null) throw new NullPointerException();
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       __deleteAdapterOfChatRoomEntity.handle(_connection, chatroom);
       return Unit.INSTANCE;
-    }, $completion);
+    }, arg1);
   }
 
   @Override
@@ -429,7 +427,7 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
   }
 
   @Override
-  public Object getCount(final Continuation<? super Integer> $completion) {
+  public Object getCount(final Continuation<? super Integer> arg0) {
     final String _sql = "SELECT COUNT(*) FROM chat_room";
     return DBUtil.performSuspending(__db, true, false, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -450,12 +448,12 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg0);
   }
 
   @Override
   public Object updateUsers(final int id, final List<ChatUser> users,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg2) {
     final String _sql = "UPDATE chat_room SET users = ? WHERE id = ?";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -474,11 +472,11 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg2);
   }
 
   @Override
-  public Object clear(final Continuation<? super Unit> $completion) {
+  public Object clear(final Continuation<? super Unit> arg0) {
     final String _sql = "DELETE FROM chat_room";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -488,12 +486,12 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg0);
   }
 
   @Override
   public Object updateLastReadMessageId(final int id, final int lastReadMessageId,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg2) {
     final String _sql = "UPDATE chat_room SET lastReadMessageId =? WHERE id =?";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -507,12 +505,12 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg2);
   }
 
   @Override
   public Object updateUnReadCount(final int id, final int unReadCount,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg2) {
     final String _sql = "UPDATE chat_room SET unReadCount =? WHERE id=?";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -526,12 +524,12 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg2);
   }
 
   @Override
   public Object updateLockStatus(final int id, final boolean isLocked,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg2) {
     final String _sql = "UPDATE chat_room SET isLocked = ? WHERE id=?";
     return DBUtil.performSuspending(__db, false, true, (_connection) -> {
       final SQLiteStatement _stmt = _connection.prepare(_sql);
@@ -546,7 +544,7 @@ public final class ChatRoomDao_Impl implements ChatRoomDao {
       } finally {
         _stmt.close();
       }
-    }, $completion);
+    }, arg2);
   }
 
   @NonNull

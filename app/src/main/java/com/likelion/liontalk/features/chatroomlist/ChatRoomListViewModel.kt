@@ -46,6 +46,10 @@ class ChatRoomListViewModel(application: Application) : ViewModel() {
                 }
 
                 withContext(Dispatchers.IO) {
+                    chatMessageRepository.syncAllMessagesFromServer()
+                }
+
+                withContext(Dispatchers.IO) {
                     chatRoomRepository.syncFromServer()
                 }
 
@@ -93,11 +97,16 @@ class ChatRoomListViewModel(application: Application) : ViewModel() {
         _state.value = _state.value.copy(currentTab = tab)
     }
 
+    fun removeChatRoom(roomId: Int) {
+        viewModelScope.launch {
+            chatRoomRepository.deleteChatRoomToRemote(roomId)
+        }
+    }
 
 
     //---------------------MQTT--------------------------
 
-    private val topics = listOf("message")
+    private val topics = listOf("message", "lock", "explod")
     private fun subscribeToMqttTopics(){
         MqttClient.connect()
         MqttClient.setOnMessageReceived { topic, message -> handleReceivedMessage(topic,message)}
@@ -106,8 +115,19 @@ class ChatRoomListViewModel(application: Application) : ViewModel() {
     private fun handleReceivedMessage(topic:String, message:String) {
         when {
             topic.endsWith("/message") -> onReceivedMessage(message)
+            topic.endsWith("/lock") -> onReceivedRoomStateChanged(message)
+            topic.endsWith("/explod") -> onReceivedRoomStateChanged(message)
+
         }
     }
+
+    fun onReceivedRoomStateChanged(message: String) {
+        viewModelScope.launch {
+            chatRoomRepository.syncFromServer()
+        }
+    }
+
+
     private fun onReceivedMessage(message:String) {
         try {
             val dto = Gson().fromJson(message,ChatMessageDto::class.java)

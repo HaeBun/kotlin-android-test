@@ -35,7 +35,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected RoomOpenDelegate createOpenDelegate() {
-    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(11, "99b96a5a6a4d9cb913d3d00b7aeaf197", "f7adb3247e8043b2f25b02240aaf1f8f") {
+    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(14, "99b96a5a6a4d9cb913d3d00b7aeaf197", "f7adb3247e8043b2f25b02240aaf1f8f") {
       @Override
       public void createAllTables(@NonNull final SQLiteConnection connection) {
         SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `chat_room` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `owner` TEXT NOT NULL, `users` TEXT NOT NULL, `unReadCount` INTEGER NOT NULL, `lastReadMessageId` INTEGER NOT NULL, `isLocked` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");

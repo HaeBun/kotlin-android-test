@@ -1,6 +1,5 @@
 package com.likelion.liontalk.features.chatroom.components
 
-import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -11,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -19,7 +19,6 @@ import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -41,7 +40,7 @@ import com.likelion.liontalk.features.chatroom.ChatRoomViewModel
 import com.likelion.liontalk.model.ChatUser
 
 @Composable
-fun ChatRoomSettingContent (
+fun ChatRoomSettingContent(
     viewModel: ChatRoomViewModel,
     onClose:() -> Unit,
     onLeaveRoom:() -> Unit,
@@ -58,7 +57,7 @@ fun ChatRoomSettingContent (
             .padding(16.dp)
     ) {
         item {
-            Row (
+            Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -68,9 +67,9 @@ fun ChatRoomSettingContent (
                     Icon(Icons.Default.Close, contentDescription = "닫기")
                 }
             }
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(Modifier.height(16.dp))
             Text("참가자 목록", style = MaterialTheme.typography.labelLarge)
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(Modifier.height(8.dp))
         }
         items(users) { user ->
             Row(
@@ -78,7 +77,7 @@ fun ChatRoomSettingContent (
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Box(
-                    modifier = Modifier.size(30.dp).clip(CircleShape)
+                  modifier = Modifier.size(30.dp).clip(CircleShape)
                 ) {
                     SubcomposeAsyncImage(
                         model = user.avataUrl,
@@ -96,50 +95,52 @@ fun ChatRoomSettingContent (
                         }
                     }
                 }
-                Spacer(modifier = Modifier.size(8.dp))
-                Text(user.name)
 
+                Spacer(Modifier.width(8.dp))
+                Text(user.name)
                 if (user.name == room?.owner?.name) {
                     Text(" (방장)", fontWeight = FontWeight.Bold, color = Color.Gray)
                 }
 
                 Spacer(Modifier.weight(1f))
-                if (user.name == room?.owner?.name && user.name != me.name) {
-                    IconButton(onClick = { onKickUser(user) }) {
-                        Icon(Icons.Default.Delete, contentDescription = "추우바아앙")
+                if(me.name == room?.owner?.name && user.name != me.name) {
+                    IconButton(onClick = { onKickUser(user)}) {
+                        Icon(Icons.Default.Delete, contentDescription = "추방")
                     }
                 }
             }
         }
 
-        if( me.name == room?.owner?.name) {
+        if (me.name == room?.owner?.name) {
             item {
                 Spacer(Modifier.height(24.dp))
-                Text("방 설정", style = MaterialTheme.typography.labelLarge)
+                Text("방 설정" , style = MaterialTheme.typography.labelLarge)
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text("잠금")
                     Spacer(Modifier.weight(1f))
                     room?.isLocked?.let {
-                        Switch(checked = it, onCheckedChange =  {
-                            // TODO 방 잠구기
+                        Switch(checked = it, onCheckedChange = {
+                            // TODO room lock
+
+                            viewModel.toggleRoomLock(it)
                         })
                     }
-
                 }
 
                 Spacer(Modifier.height(24.dp))
                 Button(
                     onClick = {
-
+                        // TODO 방 폭파
+                        explodeRoom()
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text("방 폭발")
+                    Text("방 폭파!!!")
                 }
             }
-
         } else {
             item {
+                Spacer(Modifier.height(24.dp))
                 Button(
                     onClick = { onLeaveRoom() },
                     modifier = Modifier.fillMaxWidth()
