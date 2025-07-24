@@ -2,6 +2,7 @@ package com.likelion.liontalk.features.chatroomlist
 
 import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,7 +25,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ChatRoomListViewModel(application: Application) : ViewModel() {
+class ChatRoomListViewModel(application: Application) : AndroidViewModel(application) {
 
 //    private val _state = MutableLiveData(ChatRoomListState())
 //val state : LiveData<ChatRoomListState> = _state
@@ -99,14 +100,22 @@ class ChatRoomListViewModel(application: Application) : ViewModel() {
 
     fun removeChatRoom(roomId: Int) {
         viewModelScope.launch {
-            chatRoomRepository.deleteChatRoomToRemote(roomId)
+            try {
+                val room = chatRoomRepository.getRoomFromRemote(roomId)
+                if(room != null){
+                    chatRoomRepository.deleteChatRoomToRemote(roomId)
+                }
+
+            } catch (e: Exception) {
+
+            }
         }
     }
 
 
     //---------------------MQTT--------------------------
 
-    private val topics = listOf("message", "lock", "explod")
+    private val topics = listOf("message","lock","explod")
     private fun subscribeToMqttTopics(){
         MqttClient.connect()
         MqttClient.setOnMessageReceived { topic, message -> handleReceivedMessage(topic,message)}
@@ -115,19 +124,17 @@ class ChatRoomListViewModel(application: Application) : ViewModel() {
     private fun handleReceivedMessage(topic:String, message:String) {
         when {
             topic.endsWith("/message") -> onReceivedMessage(message)
-            topic.endsWith("/lock") -> onReceivedRoomStateChanged(message)
             topic.endsWith("/explod") -> onReceivedRoomStateChanged(message)
-
+            topic.endsWith("/lock") -> onReceivedRoomStateChanged(message)
         }
     }
-
-    fun onReceivedRoomStateChanged(message: String) {
+    fun onReceivedRoomStateChanged(message:String) {
         viewModelScope.launch {
-            chatRoomRepository.syncFromServer()
+            withContext(Dispatchers.IO) {
+                chatRoomRepository.syncFromServer()
+            }
         }
     }
-
-
     private fun onReceivedMessage(message:String) {
         try {
             val dto = Gson().fromJson(message,ChatMessageDto::class.java)

@@ -8,7 +8,7 @@ import com.likelion.liontalk.model.ChatUser
 import kotlinx.coroutines.flow.Flow
 
 class ChatRoomLocalDataSource(context: Context) {
-    private val dao = AppDatabase.create(context).chatRoomDao()
+    private val dao = AppDatabase.getInstance(context).chatRoomDao()
 
     fun getChatRooms() : LiveData<List<ChatRoomEntity>> {
         return dao.getChatRooms()
@@ -64,5 +64,9 @@ class ChatRoomLocalDataSource(context: Context) {
 
     suspend fun updateLockStatus(id: Int, isLocked: Boolean) {
         dao.updateLockStatus(id, isLocked)
+    }
+
+    suspend fun deleteById(id:Int) {
+        dao.deleteById(id)
     }
 }

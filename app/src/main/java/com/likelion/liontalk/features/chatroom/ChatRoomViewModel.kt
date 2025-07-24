@@ -2,6 +2,7 @@ package com.likelion.liontalk.features.chatroom
 
 import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,9 +34,8 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okio.Lock
 
-class ChatRoomViewModel(application: Application, private val roomId: Int) : ViewModel(){
+class ChatRoomViewModel(application: Application, private val roomId: Int) : AndroidViewModel(application){
     private val chatMessageRepository = ChatMessageRepository(application.applicationContext)
     private val chatRoomRepository = ChatRoomRepository(application.applicationContext)
 //    val messages : LiveData<List<ChatMessageEntity>> = chatMessageRepository.getMessagesForRoom(roomId)
@@ -132,7 +132,7 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
     }
 
     // MQTT - methods
-    private val topics = listOf("message","typing","enter","leave","kick","explod", "lock")
+    private val topics = listOf("message","typing","enter","leave","kick","explod","lock")
     //MQTT 구독 및 메세지 수신 처리
     private fun subscribeToMqttTopics() {
 //        MqttClient.connect()
@@ -158,27 +158,25 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
             topic.endsWith("/kick") -> onReceivedKick(message)
             topic.endsWith("/explod") -> onReceivedExplod(message)
             topic.endsWith("/lock") -> onReceivedLocked(message)
-
         }
     }
 
-    fun publishLockStatus() {
+    private fun publishLockStatus() {
         val json = Gson().toJson(PresenceMessageDto(me.name))
         MqttClient.publish("liontalk/rooms/$roomId/lock",json)
     }
 
-    fun toggleRoomLock(isLock: Boolean) {
+    fun toggleRoomLock(isLock : Boolean) {
         viewModelScope.launch {
-            chatRoomRepository.toggleLock(isLock, roomId)
+            chatRoomRepository.toggleLock(isLock,roomId)
 
             publishLockStatus()
-
         }
     }
 
     fun onReceivedLocked(message: String) {
-        val dto = Gson().fromJson(message, PresenceMessageDto::class.java)
-        if(dto.sender != me.name){
+        val dto = Gson().fromJson(message,PresenceMessageDto::class.java)
+        if(dto.sender != me.name) {
             viewModelScope.launch {
                 withContext(Dispatchers.IO) {
                     chatRoomRepository.syncFromServer()
@@ -186,8 +184,6 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
             }
         }
     }
-
-
     private fun onReceivedExplod(message: String) {
         val dto = Gson().fromJson(message, PresenceMessageDto::class.java)
         if(dto.sender != me.name){
@@ -382,7 +378,7 @@ class ChatRoomViewModel(application: Application, private val roomId: Int) : Vie
     }
 
     // 사용자 추방 하기 이벤트 퍼블리시
-    fun publishKick(user:ChatUser) {
+    private fun publishKick(user:ChatUser) {
         val data = mapOf("target" to user.name)
         val json = Gson().toJson(data)
         MqttClient.publish("liontalk/rooms/$roomId/kick",json)

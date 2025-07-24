@@ -58,7 +58,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.likelion.liontalk.common.sound.SoundPlayer
+import com.likelion.liontalk.common.sound.SoundType
 import com.likelion.liontalk.features.chatroom.components.ChatMessageItem
 import com.likelion.liontalk.features.chatroom.components.ChatRoomSettingContent
 import com.likelion.liontalk.features.chatroom.components.ExplosionEffect
@@ -70,9 +73,12 @@ import kotlinx.coroutines.launch
 @Composable
 fun ChatRoomScreen(navController: NavController, roomId: Int){
     val context = LocalContext.current
-    val viewModel = remember {
-        ChatRoomViewModel(context.applicationContext as Application,roomId)
-    }
+//    val viewModel = remember {
+//        ChatRoomViewModel(context.applicationContext as Application,roomId)
+//    }
+    val viewModel : ChatRoomViewModel = viewModel(
+        factory = ChatRoomViewModelFactory(context.applicationContext as Application,roomId)
+    )
 
 //    val messages by viewModel.messages.observeAsState(emptyList())    //for LiveData
     val messages by viewModel.messages.collectAsState() //for Flow
@@ -97,6 +103,11 @@ fun ChatRoomScreen(navController: NavController, roomId: Int){
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
 
+    fun playSentSound(soundtype: SoundType) {
+        val soundPlayer = SoundPlayer(context)
+        soundPlayer.play(soundtype)
+    }
+
     LaunchedEffect(Unit) {
         eventFlow.collectLatest { event ->
             when(event) {
@@ -108,6 +119,7 @@ fun ChatRoomScreen(navController: NavController, roomId: Int){
                     typingUser.value = null
                 }
                 is ChatRoomEvent.ChatRoomEnter -> {
+                    playSentSound(SoundType.ENTER_ROOM)
 //                    Toast.makeText(context,"${event.name} 가 입장하였습니다.",Toast.LENGTH_SHORT).show()
                 }
                 is ChatRoomEvent.ChatRoomLeave -> {

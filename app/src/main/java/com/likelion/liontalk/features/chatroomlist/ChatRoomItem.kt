@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -54,11 +53,11 @@ fun ChatRoomItem(room: ChatRoom,
                  onLongPressLock:(ChatRoom) -> Unit) {
 
     Card(
-        modifier = Modifier.fillMaxWidth().padding(16.dp)
-            .combinedClickable (
-                onClick = { onClick(room)},
-                onLongClick = {}
-            ),
+       modifier = Modifier.fillMaxWidth().padding(16.dp)
+           .combinedClickable (
+               onClick = { onClick(room)},
+               onLongClick = {}
+           ),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
@@ -159,18 +158,16 @@ fun ChatRoomItem(room: ChatRoom,
                         }
                     }
 
-                    if(room.isLocked) {
+                    if (room.isLocked) {
                         Icon(
                             imageVector = Icons.Default.Lock,
                             contentDescription = "방 잠김",
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.size(24.dp)
                         )
                     }
 
                 }
-
             }
-
         }
     }
 }
